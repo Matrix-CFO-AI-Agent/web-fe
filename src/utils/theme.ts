@@ -22,7 +22,7 @@ export const darkTheme: ThemeVars = {
     primaryButton: "#1C1C1C",
     primaryButtonHover: "#747474",
     outlineButtonHover: "#747474",
-    modalOverlay: "#1c1c1c",
+    modalOverlay: "rgba(24 36 53 / 20%)",
     modalPrimary: "#0c0c0c",
     modalSecondary: "black",
     iconButton: "transparent",
