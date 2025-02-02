@@ -15,7 +15,6 @@
     "@iconify/react": "^5.2.0",
     "@mysten/dapp-kit": "0.14.48",
     "@mysten/sui": "1.21.0",
-    "@tailwindcss/oxide-win32-x64-msvc": "^4.0.2",
     "@tailwindcss/vite": "^4.0.1",
     "@tanstack/react-query": "^5.50.1",
     "antd": "^5.23.3",
