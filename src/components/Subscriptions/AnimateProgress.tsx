@@ -8,7 +8,7 @@ export default function AnimateProgress({
   status: string;
 }) {
   return (
-    <div className="relative flex h-[5px] w-full rounded-full bg-[#527067] ">
+    <div className="relative flex h-[5px] w-full rounded-full bg-[#999] ">
       <div
         className={cn(
           "animate-progress-line relative h-[5px]",
@@ -45,7 +45,7 @@ export default function AnimateProgress({
             inset: 0px;
             background-size: 500%;
             animation: animate 3s linear infinite;
-            filter: blur(2px);
+            // filter: blur(2px);
             background-size: 200%;
             border-radius: 5px;
           }

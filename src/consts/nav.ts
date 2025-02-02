@@ -4,11 +4,11 @@ export const NAV_ITEMS = [
     href: "#subscriptions",
     name: "subscriptions",
   },
-  {
-    label: "Incomes  ",
-    href: "#incomes",
-    name: "incomes",
-  },
+  // {
+  //   label: "Incomes  ",
+  //   href: "#incomes",
+  //   name: "incomes",
+  // },
   {
     label: "Investments",
     href: "#investments",

@@ -1,65 +1,6 @@
 @import "tailwindcss";
 
-/* ZenDots Font */
-@font-face {
-  font-family: "ZenDots";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/zen/ZenDots-Regular.ttf") format("truetype");
+div {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
-
-/* Montserrat Font */
-@font-face {
-  font-family: "Montserrat";
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("../public/fonts/montserrat/Montserrat-VariableFont_wght.ttf")
-    format("truetype");
-}
-
-.transparent-with-round-gradient-border:before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  padding: 1px;
-  border-radius: 16px;
-  background: linear-gradient(
-    to bottom right,
-    rgba(121,97,33,0.20),
-    rgba(36,83,43,0.20)
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-
-.contest-transparent-with-gradient-bg {
-  background: linear-gradient(
-    94deg,
-    rgba(121,97,33,0.20) 7.54%,
-    rgba(36,83,43,0.20) 95.19%
-  );
-  backdrop-filter: blur(20px);
-
-  /* debugging code */
-  /* border: 1px solid rgb(255, 204, 0); */
-}
-  /* container with gradient bg and gradient border
-   * ------------------------------------------------------------------------- */
-   .transparent-with-round-gradient-border {
-    position: relative;
-    z-index: 0;
-
-    /* debugging code */
-    /* border: 1px solid rgb(0, 223, 63); */
-  }

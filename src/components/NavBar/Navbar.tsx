@@ -18,24 +18,27 @@ export default function Navbar({
     subscriptions: SubscriptionIcon,
     investments: InvestmentIcon,
     incomes: IncomeIcon,
-  } as any
+  } as any;
   return (
-    <div className="sticky top-16 h-[calc(100vh-64px)] min-h-fit w-[220px] flex-none border-r border-white/10 px-4 overflow-hidden pt-10">
+    <div className="sticky top-16 min-h-fit flex-none border-r border-white/10 px-4 overflow-hidden pt-8">
       {NAV_ITEMS.map((item) => {
         const Icon = icons[item.name];
         return (
           <div
             key={item.name}
             className={cn(
-              "flex items-center gap-3 my-8 cursor-pointer",
-              value === item.name
-                ? "text-[#40A531]"
-                : "text-white/60 hover:text-white"
+              "flex items-center gap-3 my-4 px-3 py-2 rounded-sm cursor-pointer text-black",
+              value === item.name ? "bg-[#f9f9f9]" : "hover:bg-[#f9f9f9]"
             )}
             onClick={() => onChange(item.name)}
           >
-            <Icon className="size-6" />
-            <button onClick={() => onChange(item.name)} className="cursor-pointer font-medium">{item.label}</button>
+            <Icon className="size-4 flex-none" />
+            <button
+              onClick={() => onChange(item.name)}
+              className="cursor-pointer"
+            >
+              {item.label}
+            </button>
           </div>
         );
       })}

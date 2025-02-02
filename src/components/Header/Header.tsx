@@ -1,20 +1,17 @@
-import { ConnectButton } from "@mysten/dapp-kit";
-
 export default function Header() {
   return (
-    <div className="sticky top-0 z-0 h-[64px] backdrop-blur-sm bg-black flex justify-between items-center px-4">
-      <div className="flex items-center gap-4">
-        <img src="/images/matrix-ai-icon.webp" alt="Matrix AI" className="h-10 w-auto rounded-md" />
-        <div className="font-zen-dots text-2xl" style={{ fontFamily: "ZenDots" }}>
-          Matrix AI
+    <div className="sticky top-0 z-0 pt-8 backdrop-blur-sm bg-white flex justify-between items-center px-6">
+      <div className="flex-1 flex-col flex gap-3">
+        <div className="flex items-center ">
+          <img
+            src="/images/matrix-ai-logo.png"
+            alt="Matrix AI"
+            className="h-7 w-auto flex-none"
+          />
         </div>
-        <div className="text-white/60 text-sm pt-1">
-          Your Trusted AI Companion for Every Step
+        <div className="text-black/60 text-xs flex-1">
+          CFO AI Agent for Crypto
         </div>
-      </div>
-
-      <div className="flex justify-end">
-        <ConnectButton style={{ padding: 8 }} id="connect-button" />
       </div>
     </div>
   );
