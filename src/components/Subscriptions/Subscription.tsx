@@ -12,6 +12,7 @@ export default function Subscription({
   endDate,
   progress,
   AIAdvice,
+  icon,
 }: {
   label: string;
   price: number;
@@ -20,6 +21,7 @@ export default function Subscription({
   endDate: string;
   progress: number;
   AIAdvice: string;
+  icon: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -51,7 +53,10 @@ export default function Subscription({
         }}
       >
         <div className="flex flex-1 items-center justify-between">
-          <div className="text-lg font-medium flex-none">{label}</div>
+          <div className="flex items-center gap-2">
+            <img src={icon} alt={label} className="h-5 w-auto rounded-sm" />
+            <div className="text-lg font-medium flex-none">{label}</div>
+          </div>
           {!isOpen ? (
             <div className="flex items-center gap-1.5">
               <div className="text-sm text-black/60">${price}/Month</div>

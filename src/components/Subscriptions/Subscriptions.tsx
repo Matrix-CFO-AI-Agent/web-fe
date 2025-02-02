@@ -22,6 +22,7 @@ const generateRandomSubscriptionData = () => {
       subscribeDate: "2024-01-01",
       endDate: "2025-01-01",
       progress: 0.5,
+      icon: "/images/youtube-icon.png",
     },
     {
       name: "netflix",
@@ -33,6 +34,7 @@ const generateRandomSubscriptionData = () => {
       progress: 0.8,
       AIAdvice:
         "You should renew this subscription. You have been watching a lot of movies and TV shows on Netflix, and you should continue to watch them.",
+      icon: "/images/netflix-icon.png",
     },
     {
       name: "spotify",
@@ -44,6 +46,7 @@ const generateRandomSubscriptionData = () => {
       progress: 0,
       AIAdvice:
         "You should cancel this subscription. You have not been using Spotify for a long time, and you should cancel this subscription.",
+      icon: "/images/spotify-icon.png",
     },
   ];
 };
