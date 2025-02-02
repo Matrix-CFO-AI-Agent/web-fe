@@ -1,51 +1,93 @@
 export default function Investments() {
   const investmentCategories = [
     {
-      name: "dex",
-      label: "Dex",
-      src: "/images/dex-icon.png",
-      description:
-        "The leading DEX and liquidity protocol on #Sui. The key liquidity and swap infra of #Sui. #Cetus, where Sui trading happens. 🌊 🐳",
-      url: "https://x.com/CetusProtocol",
+      type: "dex",
+      label: "DEX",
+      projects: [
+        {
+          name: "camelot",
+          label: "Camelot",
+          src: "/images/dex/camelot-icon.jpg",
+          description:
+            "The Orbital Liquidity Network & @Arbitrum's largest DEX",
+          url: "https://x.com/CamelotDEX",
+        },
+        {
+          name: "sailfish",
+          label: "SailFish",
+          src: "/images/dex/sailfish-icon.jpg",
+          description:
+            "Built to be Fast and Efficient, SailFish is the first  native veDEX on @opencampus_xyz distributing 100% fees to protocol users.",
+          url: "https://x.com/SailFishFinance",
+        },
+      ],
     },
     {
-      name: "lending",
-      label: "Suilend",
-      src: "/images/lending-icon.jpg",
-      description:
-        "The leading money market on @SuiNetwork.  Link🌲: http://linktr.ee/scallop_io",
-      url: "https://x.com/Scallop_io",
+      type: "lending",
+      label: "Lending",
+      projects: [
+        {
+          name: "blend",
+          label: "Blend",
+          src: "/images/lending/blend-icon.png",
+          description:
+            "Lending Protocol for Bitcoin.Backed by @MarioNawfal, @ibcgroupio and @HackQuest_ community fund.",
+          url: "https://x.com/suilendprotocol",
+        },
+      ],
     },
     {
+      type: "lsd",
       label: "LSD",
-      src: "/images/lending-icon.jpg",
-      description:
-        "Sui's DeFi suite with lending, infinite liquid staking (@springsui_), and a superfluid AMM (@steammfi). Contact http://discord.gg/suilend for support.",
-      url: "https://x.com/suilendprotocol",
+      projects: [
+        {
+          name: "moveFlow",
+          label: "MoveFlow",
+          src: "/images/lsd/move-flow-icon.png",
+          description:
+            "Token management infra for vesting, airdrop, payroll and subscription.",
+          url: "https://x.com/moveflowlabs_",
+        },
+      ],
     },
   ];
   return (
-    <div className="p-6 grid grid-cols-2 gap-8">
+    <div className="flex flex-col gap-8">
       {investmentCategories.map((category) => (
-        <div
-          key={category.name}
-          className="flex pb-16 bg-white flex-col gap-8 rounded-lg p-6 border max-w-[600px] border-black/30 relative"
-        >
-          <a href={category.url} target="_blank" rel="noopener noreferrer">
-            <div className="flex items-center gap-2">
-              <img
-                src={category.src}
-                alt={category.label}
-                className="size-8 rounded-sm"
-              />
-              <div className="text-2xl font-bold">{category.label}</div>
-            </div>
-          </a>
-          <div className="text-sm text-gray-500">{category.description}</div>
-          <div className="flex justify-end absolute bottom-6 right-6">
-            <button className="text-sm text-gray-500 bg-black/10 rounded-lg px-2 py-1">
-              Coming Soon
-            </button>
+        <div key={category.type} className="flex flex-col gap-4">
+          <div className="text-2xl font-bold">{category.label}</div>
+          <div className="grid grid-cols-3 gap-6">
+            {category.projects.map((project) => (
+              <div
+                key={project.name}
+                className="flex bg-white flex-col gap-4 justify-between rounded-lg p-5 border border-black/30 relative"
+              >
+                <div className="flex flex-col gap-4">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={project.src}
+                        alt={project.label}
+                        className="size-8 rounded-sm"
+                      />
+                      <div className="text-lg font-bold">{project.label}</div>
+                    </div>
+                  </a>
+                  <div className="text-sm text-gray-500">
+                    {project.description}
+                  </div>
+                </div>
+                <div className="flex justify-end">
+                  <button className="text-sm text-gray-500 bg-black/10 rounded-sm px-3 py-2">
+                    Coming Soon
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       ))}

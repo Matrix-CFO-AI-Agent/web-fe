@@ -30,17 +30,17 @@ export default function Chat() {
     <div className="relative p-4 flex flex-col gap-3 border overflow-hidden overflow-y-auto border-black rounded-lg h-full">
       <Bubble
         placement="start"
-        content="Hi,According to your record on Youtube for the last 30 days, you have watched 10 hours of videos. We recommend you to subscribe to our premium plan to get more benefits."
+        content="Consider canceling Coursera subscription. Low engagement detected - only 2 courses completed in 6 months."
         avatar={{ icon: <UserOutlined />, style: fooAvatar }}
       />
       <Bubble
         placement="start"
-        content="Netflix is a good choice for you. You can watch 4K videos and enjoy the best quality."
+        content="Great value on Deeplearning.ai! High completion rate and consistent learning progress. Keep this subscription."
         avatar={{ icon: <UserOutlined />, style: fooAvatar }}
       />
       <Bubble
         placement="start"
-        content="Hi, do you have any other questions?"
+        content="Not worth renewing Udacity. Limited usage in the past 3 months. Try free alternatives first."
         avatar={{ icon: <UserOutlined />, style: fooAvatar }}
       />
       {messages.map((message, index) => (

@@ -53,7 +53,7 @@ export default function Subscription({
         }}
       >
         <div className="flex flex-1 items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <img src={icon} alt={label} className="h-5 w-auto rounded-sm" />
             <div className="text-lg font-medium flex-none">{label}</div>
           </div>
@@ -86,7 +86,7 @@ export default function Subscription({
             <span className="text-black/60">Status: </span>
             <div className="flex items-center gap-2">
               <div className="text-black">{status}</div>
-              <div className="w-[400px]">
+              <div className="w-[300px]">
                 <AnimateProgress ratio={progress} status={status} />
               </div>
             </div>
