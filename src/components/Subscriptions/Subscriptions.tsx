@@ -13,40 +13,40 @@ import Subscription from "./Subscription";
 const generateRandomSubscriptionData = () => {
   return [
     {
-      name: "coursera",
-      label: "Coursera",
+      name: "youtube",
+      label: "Youtube Premium",
       price: 10,
       status: "Not Recommended",
       AIAdvice:
-        "Consider canceling this subscription. Low engagement detected - only 2 courses completed in 6 months.",
+        "You should cancel this subscription. Last year you spent 1000$ on this subscription, but you only watched 100 hours of videos. You should cancel this subscription and use the money to buy a new laptop.",
       subscribeDate: "2024-01-01",
       endDate: "2025-01-01",
-      progress: 0.2,
-      icon: "/images/subscriptions/coursera-icon.png",
+      progress: 0.5,
+      icon: "/images/subscriptions/youtube-icon.png",
     },
     {
-      name: "deeplearningAi",
-      label: "Deeplearning.ai",
+      name: "netflix",
+      label: "Netflix",
       price: 15,
       status: "Recommended",
       subscribeDate: "2024-02-01",
       endDate: "2025-08-01",
       progress: 0.8,
       AIAdvice:
-        "Great value! High completion rate and consistent learning progress. Keep this subscription.",
-      icon: "/images/subscriptions/deep-learning-ai-icon.png",
+        "You should renew this subscription. You have been watching a lot of movies and TV shows on Netflix, and you should continue to watch them.",
+      icon: "/images/subscriptions/netflix-icon.png",
     },
     {
-      name: "udacity",
-      label: "Udacity",
+      name: "spotify",
+      label: "Spotify",
       price: 5,
       status: "Expired",
       subscribeDate: "2023-03-01",
       endDate: "2024-02-01",
       progress: 0,
       AIAdvice:
-        "Not worth renewing. Limited usage in the past 3 months. Try free alternatives first.",
-      icon: "/images/subscriptions/udacity-icon.png",
+        "You should cancel this subscription. You have not been using Spotify for a long time, and you should cancel this subscription.",
+      icon: "/images/subscriptions/spotify-icon.png",
     },
   ];
 };

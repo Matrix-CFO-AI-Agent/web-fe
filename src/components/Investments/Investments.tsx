@@ -5,20 +5,19 @@ export default function Investments() {
       label: "DEX",
       projects: [
         {
-          name: "camelot",
-          label: "Camelot",
-          src: "/images/dex/camelot-icon.jpg",
-          description:
-            "The Orbital Liquidity Network & @Arbitrum's largest DEX",
-          url: "https://x.com/CamelotDEX",
+          name: "cetus",
+          label: "Cetus",
+          src: "/images/dex/cetus-icon.png",
+          description: `The leading DEX and liquidity protocol on #Sui. The key liquidity and swap infra of #Sui #Cetus, where Sui trading happens. 🌊 🐳`,
+          url: "https://x.com/CetusProtocol",
         },
         {
-          name: "sailfish",
-          label: "SailFish",
-          src: "/images/dex/sailfish-icon.jpg",
+          name: "kriya",
+          label: "Kriya",
+          src: "/images/dex/kriya-icon.jpg",
           description:
-            "Built to be Fast and Efficient, SailFish is the first  native veDEX on @opencampus_xyz distributing 100% fees to protocol users.",
-          url: "https://x.com/SailFishFinance",
+            "building in peace 🧘‍♂️ building on sui💧swap | limit orders | 1-click yield strategies | 20x perps |  everything for everyone @ http://app.kriya.finance",
+          url: "https://x.com/KriyaDEX",
         },
       ],
     },
@@ -27,11 +26,27 @@ export default function Investments() {
       label: "Lending",
       projects: [
         {
-          name: "blend",
-          label: "Blend",
-          src: "/images/lending/blend-icon.png",
+          name: "scallop",
+          label: "Scallop",
+          src: "/images/lending/scallop-icon.jpg",
           description:
-            "Lending Protocol for Bitcoin.Backed by @MarioNawfal, @ibcgroupio and @HackQuest_ community fund.",
+            "The leading money market on @SuiNetwork. Link🌲: http://linktr.ee/scallop_io",
+          url: "https://x.com/Scallop_io",
+        },
+        {
+          name: "navi",
+          label: "Navi",
+          src: "/images/lending/navi-icon.jpg",
+          description:
+            "Ultimate Defi infra #Sui (Lending + LSTDefi). $NAVX. Backed by @okx_ventures @hashed_official & @daofive",
+          url: "https://x.com/navi_protocol",
+        },
+        {
+          name: "suilend",
+          label: "Suilend",
+          src: "/images/lending/suilend-icon.png",
+          description:
+            "Sui's DeFi suite with lending, infinite liquid staking (@springsui_), and a superfluid AMM (@steammfi). Contact http://discord.gg/suilend for support.",
           url: "https://x.com/suilendprotocol",
         },
       ],
@@ -41,18 +56,18 @@ export default function Investments() {
       label: "LSD",
       projects: [
         {
-          name: "moveFlow",
-          label: "MoveFlow",
-          src: "/images/lsd/move-flow-icon.png",
+          name: "aftermathFi",
+          label: "AftermathFi",
+          src: "/images/lsd/aftermathFi-icon.jpg",
           description:
-            "Token management infra for vesting, airdrop, payroll and subscription.",
-          url: "https://x.com/moveflowlabs_",
+            "Building the next-gen on-chain trading platform. Swap, Trade, Stake, & MEV Infra. ",
+          url: "https://x.com/AftermathFi",
         },
       ],
     },
   ];
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 px-4">
       {investmentCategories.map((category) => (
         <div key={category.type} className="flex flex-col gap-4">
           <div className="text-2xl font-bold">{category.label}</div>

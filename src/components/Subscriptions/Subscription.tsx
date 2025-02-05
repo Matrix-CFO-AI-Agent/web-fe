@@ -23,11 +23,11 @@ export default function Subscription({
   AIAdvice: string;
   icon: string;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(status === "Not Recommended");
   return (
     <div
       className={cn(
-        "flex flex-col rounded-lg p-6 border max-w-[800px] border-black/60 relative",
+        "flex flex-col rounded-lg p-6 border border-black/60 relative",
         status === "Expired" ? "border-[#999]/20" : ""
       )}
     >
