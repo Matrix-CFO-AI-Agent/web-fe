@@ -14,4 +14,9 @@ export const NAV_ITEMS = [
     href: "#investments",
     name: "investments",
   },
+  {
+    label: "Logs",
+    href: "#logs",
+    name: "logs",
+  },
 ];

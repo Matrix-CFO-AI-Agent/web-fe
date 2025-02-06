@@ -1,11 +1,11 @@
 import { NAV_ITEMS } from "../../consts";
 import { cn } from "../../utils";
 // @ts-ignore
-import SubscriptionIcon from "./images/subscription-icon.svg?react";
+import SubscriptionIcon from "./images/subscription-icon.svg";
 // @ts-ignore
-import InvestmentIcon from "./images/investment-icon.svg?react";
+import InvestmentIcon from "./images/investment-icon.svg";
 // @ts-ignore
-import IncomeIcon from "./images/income-icon.svg?react";
+import AgentLogsIcon from "./images/logs-icon.svg";
 
 export default function Navbar({
   value,
@@ -17,12 +17,11 @@ export default function Navbar({
   const icons = {
     subscriptions: SubscriptionIcon,
     investments: InvestmentIcon,
-    incomes: IncomeIcon,
+    logs: AgentLogsIcon,
   } as any;
   return (
     <div className="sticky top-16 min-h-fit flex-none border-r border-white/10 px-4 overflow-hidden pt-8">
       {NAV_ITEMS.map((item) => {
-        const Icon = icons[item.name];
         return (
           <div
             key={item.name}
@@ -32,7 +31,7 @@ export default function Navbar({
             )}
             onClick={() => onChange(item.name)}
           >
-            <Icon className="size-4 flex-none" />
+            <img src={icons[item.name]} alt={item.label} className="size-4" />
             <button
               onClick={() => onChange(item.name)}
               className="cursor-pointer"

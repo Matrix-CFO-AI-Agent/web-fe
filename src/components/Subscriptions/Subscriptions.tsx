@@ -53,7 +53,7 @@ const generateRandomSubscriptionData = () => {
 
 export default function Subscriptions() {
   return (
-    <div className="flex flex-1 gap-8 p-2 items-stretch">
+    <div className="flex flex-1 gap-8 p-2 items-stretch max-h-[100%]">
       <div className="flex flex-col gap-10 flex-1">
         {generateRandomSubscriptionData().map((subscription) => (
           <Subscription key={subscription.name} {...subscription} />

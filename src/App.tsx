@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import Incomes from "./components/Incomes";
 import Investments from "./components/Investments";
-import Navbar from "./components/NavBar/Navbar";
+import Navbar from "./components/NavBar";
 import Subscriptions from "./components/Subscriptions";
 import { NAV_ITEMS } from "./consts";
 
 import { ConnectButton } from "@mysten/dapp-kit";
+import AgentLogs from "./components/AgentLogs";
 import "./index.css";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         <div className="flex-1 relative overflow-y-auto flex flex-col gap-4">
           {activeNavName === "subscriptions" ? <Subscriptions /> : null}
           {activeNavName === "investments" ? <Investments /> : null}
-          {activeNavName === "incomes" ? <Incomes /> : null}
+          {activeNavName === "logs" ? <AgentLogs /> : null}
         </div>
       </div>
     </div>

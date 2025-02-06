@@ -1,8 +1,14 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { useCurrentAccount, useSuiClient } from "@mysten/dapp-kit";
 import { useState } from "react";
 import { cn, stopSpeakText } from "../../utils";
 import AnimateProgress from "./AnimateProgress";
 export { Icon as AppIcon, Icon } from "@iconify/react";
+
+const contractAddress =
+  "0x8adcbe225d672f56ee96abc51481887e106661ef899ccc5a7dec7161b790be69";
+const moduleName = "stream";
+const functionName = "get_stream_payment_info";
 
 export default function Subscription({
   label,
@@ -23,16 +29,30 @@ export default function Subscription({
   AIAdvice: string;
   icon: string;
 }) {
+  const account = useCurrentAccount();
+  const client = useSuiClient();
+
   const [isOpen, setIsOpen] = useState(status === "Not Recommended");
+
+  // const queryStreamPaymentStatus = async () => {
+  //   const result = await client.(
+  //     contractAddress,
+  //     moduleName,
+  //     functionName,
+  //     [account?.address]
+  //   );
+  //   console.log(result);
+  // };
+
   return (
     <div
       className={cn(
-        "flex flex-col rounded-lg p-6 border border-black/60 relative",
-        status === "Expired" ? "border-[#999]/20" : ""
+        "flex flex-col rounded-lg p-6 border border-black/60 bg-white relative",
+        status === "Expired" ? "border-[#999]/60" : ""
       )}
     >
       {status === "Expired" ? (
-        <div className="absolute top-0 right-0 bg-[#999] text-black px-2 h-5 flex items-center text-xs rounded-bl-sm rounded-tr-sm">
+        <div className="absolute top-0 right-0 bg-[#ccc]/60 text-black px-2.5 h-5 flex items-center text-xs rounded-bl-sm rounded-tr-sm">
           Expired
         </div>
       ) : null}
