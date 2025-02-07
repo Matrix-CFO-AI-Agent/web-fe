@@ -2,7 +2,8 @@ import { UserOutlined } from "@ant-design/icons";
 import { Bubble } from "@ant-design/x";
 import { useCurrentAccount } from "@mysten/dapp-kit";
 import { Button, Input, message } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { sendMessage } from "../../utils/chat";
 
 const fooAvatar: React.CSSProperties = {
   color: "#f56a00",
@@ -19,62 +20,59 @@ const hideAvatar: React.CSSProperties = {
 };
 
 export default function Chat() {
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<{ text: string; user: string }[]>(
+    []
+  );
   const [input, setInput] = useState<string>("");
+  const [loading, setLoading] = useState(false);
   const account = useCurrentAccount();
 
-  const handleSend = async () => {
-    if (!input) {
+  const handleSend = async (text?: string) => {
+    const inputMessage = text || input;
+    if (!inputMessage) {
       return;
     }
     if (!account) {
       message.warning("Please connect your wallet first");
       return;
     }
-    setMessages([...messages, input]);
-    fetch(
-      `http://localhost:3000/b850bc30-45f8-0041-a00a-83df46d8555d/message`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer sk-fd90b655d40c4ba79e2ccf74bdece4d3`,
-        },
-        body: JSON.stringify({
-          text: input,
-          userId: "user",
-          userName: "User",
-        }),
-      }
-    );
+    const currentMessages = [...messages];
+    const newMessages = [
+      ...currentMessages,
+      { text: inputMessage, user: "user" },
+    ];
+    setMessages(newMessages);
     setInput("");
+    setLoading(true);
+    const res = await sendMessage(inputMessage);
+    setLoading(false);
+    if (res) {
+      setMessages([...newMessages, { text: res.data[0].text, user: "agent" }]);
+    } else {
+      message.warning(
+        "Sorry, server error: we're on it! stay tuned for updates."
+      );
+      setMessages(currentMessages);
+    }
   };
+
+  useEffect(() => {
+    handleSend("check my subscriptions");
+  }, []);
 
   return (
     <div className="relative py-4 bg-white border flex flex-col overflow-hidden border-black rounded-lg h-full">
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col gap-3 px-4">
-          <Bubble
-            placement="start"
-            content="Hi,According to your record on Youtube for the last 30 days, you have watched 10 hours of videos. We recommend you to subscribe to our premium plan to get more benefits."
-            avatar={{ icon: <UserOutlined />, style: fooAvatar }}
-          />
-          <Bubble
-            placement="start"
-            content="Netflix is a good choice for you. You can watch 4K videos and enjoy the best quality."
-            avatar={{ icon: <UserOutlined />, style: fooAvatar }}
-          />
-          <Bubble
-            placement="start"
-            content="Hi, do you have any other questions?"
-            avatar={{ icon: <UserOutlined />, style: fooAvatar }}
-          />
           {messages.map((message, index) => (
             <Bubble
               key={index}
-              placement="end"
-              content={message}
-              avatar={{ icon: <UserOutlined />, style: barAvatar }}
+              placement={message.user !== "user" ? "start" : "end"}
+              content={message.text}
+              avatar={{
+                icon: <UserOutlined />,
+                style: message.user !== "user" ? fooAvatar : barAvatar,
+              }}
             />
           ))}
         </div>
@@ -91,7 +89,13 @@ export default function Chat() {
               handleSend();
             }}
           />
-          <Button onClick={handleSend}>Send</Button>
+          <Button
+            onClick={() => handleSend()}
+            loading={loading}
+            disabled={loading}
+          >
+            Send
+          </Button>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useCurrentAccount, useSuiClient } from "@mysten/dapp-kit";
 import { useState } from "react";
-import { cn, stopSpeakText } from "../../utils";
+import { cn } from "../../utils";
 import AnimateProgress from "./AnimateProgress";
 export { Icon as AppIcon, Icon } from "@iconify/react";
 
@@ -19,6 +19,8 @@ export default function Subscription({
   progress,
   AIAdvice,
   icon,
+  hasAccount = false,
+  description = "",
 }: {
   label: string;
   price: number;
@@ -28,21 +30,43 @@ export default function Subscription({
   progress: number;
   AIAdvice: string;
   icon: string;
+  hasAccount?: boolean;
+  description?: string;
 }) {
   const account = useCurrentAccount();
   const client = useSuiClient();
 
   const [isOpen, setIsOpen] = useState(status === "Not Recommended");
 
-  // const queryStreamPaymentStatus = async () => {
-  //   const result = await client.(
-  //     contractAddress,
-  //     moduleName,
-  //     functionName,
-  //     [account?.address]
-  //   );
-  //   console.log(result);
-  // };
+  if (!hasAccount) {
+    return (
+      <div
+        className={cn(
+          "flex flex-col rounded-lg p-6 border border-black/60 bg-white relative",
+          status === "Expired" ? "border-[#999]/60" : ""
+        )}
+      >
+        <div
+          className={cn("flex items-center justify-between gap-3")}
+          onClick={() => {
+            if (status !== "Expired") {
+              setIsOpen(!isOpen);
+            }
+          }}
+        >
+          <div className="flex flex-1 items-center justify-between gap-33">
+            <div className="flex items-center gap-3">
+              <img src={icon} alt={label} className="h-5 w-auto rounded-sm" />
+              <div className="text-lg font-medium flex-none">{label}</div>
+            </div>
+          </div>
+          <div className="text-sm text-black/60 line-clamp-1">
+            {description}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -64,11 +88,6 @@ export default function Subscription({
         onClick={() => {
           if (status !== "Expired") {
             setIsOpen(!isOpen);
-            if (!isOpen) {
-              stopSpeakText();
-            } else {
-              stopSpeakText();
-            }
           }
         }}
       >

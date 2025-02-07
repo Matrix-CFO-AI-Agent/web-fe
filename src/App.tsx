@@ -8,6 +8,7 @@ import { NAV_ITEMS } from "./consts";
 import { ConnectButton } from "@mysten/dapp-kit";
 import AgentLogs from "./components/AgentLogs";
 import "./index.css";
+import { cn } from "./utils";
 
 function App() {
   const [activeNavName, setActiveNavName] = useState<string>(NAV_ITEMS[0].name);
@@ -22,9 +23,17 @@ function App() {
           <ConnectButton id="connect-button" />
         </div>
         <div className="flex-1 relative overflow-y-auto flex flex-col gap-4">
-          {activeNavName === "subscriptions" ? <Subscriptions /> : null}
-          {activeNavName === "investments" ? <Investments /> : null}
-          {activeNavName === "logs" ? <AgentLogs /> : null}
+          <div
+            className={cn(activeNavName === "subscriptions" ? "" : "hidden")}
+          >
+            <Subscriptions />
+          </div>
+          <div className={cn(activeNavName === "investments" ? "" : "hidden")}>
+            <Investments />
+          </div>
+          <div className={cn(activeNavName === "logs" ? "" : "hidden")}>
+            <AgentLogs />
+          </div>
         </div>
       </div>
     </div>
