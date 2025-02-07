@@ -57,7 +57,7 @@ export default function Chat() {
   };
 
   useEffect(() => {
-    handleSend("check my subscriptions");
+    handleSend("Tell me about my subscriptions.");
   }, []);
 
   return (

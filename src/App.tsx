@@ -24,14 +24,24 @@ function App() {
         </div>
         <div className="flex-1 relative overflow-y-auto flex flex-col gap-4">
           <div
-            className={cn(activeNavName === "subscriptions" ? "" : "hidden")}
+            className={cn(
+              "h-full",
+              activeNavName === "subscriptions" ? "" : "hidden"
+            )}
           >
             <Subscriptions />
           </div>
-          <div className={cn(activeNavName === "investments" ? "" : "hidden")}>
+          <div
+            className={cn(
+              "h-full",
+              activeNavName === "investments" ? "" : "hidden"
+            )}
+          >
             <Investments />
           </div>
-          <div className={cn(activeNavName === "logs" ? "" : "hidden")}>
+          <div
+            className={cn("h-full", activeNavName === "logs" ? "" : "hidden")}
+          >
             <AgentLogs />
           </div>
         </div>
